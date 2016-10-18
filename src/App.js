@@ -53,10 +53,6 @@ class App extends Component {
     ]
   }
 
-  getInitialState() {
-    return {};
-  }
-
   render() {
     return (
       <div>
@@ -68,5 +64,6 @@ class App extends Component {
     )
   }
 }
+
 
 export default App;
