@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PropTypes, Component } from 'react';
 
 class MovieRow extends Component {
   constructor(props) {
@@ -15,7 +15,8 @@ class MovieRow extends Component {
         float: 'left',
         width: 100,
         height: 100,
-        marginRight: 10
+        marginRight: 10,
+        border: '1px solid #000'
       },
       info: {
         minHeight: 120
@@ -27,12 +28,18 @@ class MovieRow extends Component {
   }
 
   render() {
+    let poster;
+    if (this.props.movie.Poster && this.props.movie.Poster !== 'N/A') {
+      poster = <img
+        style={this.styles.poster}
+        src={this.props.movie.Poster}
+      />;
+    } else {
+      poster = <div style={this.styles.poster}>&nbsp;</div>;
+    }
     return (
       <div style={this.styles.row}>
-        <img
-          style={this.styles.poster}
-          src={this.props.movie.Poster}
-        />
+        {poster}
         <div style={this.styles.info}>
           <span style={this.styles.heading}>Title: </span>{this.props.movie.Title} <br />
           <span style={this.styles.heading}>Released: </span>{this.props.movie.Released} <br />
@@ -44,7 +51,7 @@ class MovieRow extends Component {
 };
 
 MovieRow.propTypes = {
-  movie: React.PropTypes.object.isRequired
+  movie: PropTypes.object.isRequired
 }
 
 export default MovieRow;

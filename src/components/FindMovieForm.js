@@ -1,21 +1,31 @@
-import React, { Component } from 'react';
+import React, { PropTypes, Component } from 'react';
 
 class FindMovieForm extends Component {
   constructor(props) {
     super(props);
   }
 
+  handleSubmit() {
+    this.props.onUserSubmit(this.refs.searchText.value);
+  }
+
   render() {
     return (
-      <form className="searchForm">
+      <div>
         <input
           type="text"
-          value=""
+          ref="searchText"
+          placeholder="Search..."
         />
-        <input type="submit" value="Search" />
-      </form>
+        <input type="button" value="Submit" onClick={this.handleSubmit.bind(this)} />
+      </div>
     )
   }
 }
+
+FindMovieForm.propTypes = {
+  searchText: PropTypes.string.isRequired,
+  onUserSubmit: PropTypes.func.isRequired
+};
 
 export default FindMovieForm;

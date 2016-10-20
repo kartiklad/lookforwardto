@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PropTypes, Component } from 'react';
 import MovieRow from './MovieRow';
 
 class MovieList extends Component {
@@ -10,7 +10,6 @@ class MovieList extends Component {
     const rows = [];
     this.props.movies
       .forEach((movie) => rows.push(<MovieRow key={movie.imdbID} movie={movie}></MovieRow>));
-
     return (
       <div>
         {rows}
@@ -20,7 +19,7 @@ class MovieList extends Component {
 }
 
 MovieList.propTypes = {
-  movies: React.PropTypes.array.isRequired
-}
+  movies: PropTypes.array.isRequired
+};
 
 export default MovieList;
