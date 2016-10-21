@@ -23,8 +23,25 @@ class MovieRow extends Component {
       },
       heading: {
         fontWeight: 600
+      },
+      show: {
+        display: 'block'
+      },
+      hide: {
+        display: 'none'
       }
     }
+  }
+
+  addToRemind() {
+    let movie;
+    try {
+      movie = JSON.parse(this.refs.movie.value);
+    } catch (e) {
+      throw new Error('Couldn\'t read movie');
+    }
+
+    this.props.saveMovie(movie);
   }
 
   render() {
@@ -45,13 +62,17 @@ class MovieRow extends Component {
           <span style={this.styles.heading}>Released: </span>{this.props.movie.Released} <br />
           <span style={this.styles.heading}>Plot: </span>{this.props.movie.Plot}
         </div>
+        <input type="hidden" ref="movie" value={JSON.stringify(this.props.movie)} />
+        <input style={this.props.isSaved ? this.styles.hide : this.styles.show} type="button" value="Remind me" onClick={this.addToRemind.bind(this)} />
       </div>
     );
   }
 };
 
 MovieRow.propTypes = {
-  movie: PropTypes.object.isRequired
+  movie: PropTypes.object.isRequired,
+  isSaved: PropTypes.bool.isRequired,
+  saveMovie: PropTypes.func
 }
 
 export default MovieRow;

@@ -56,6 +56,7 @@ class App extends Component {
         <Loading show={this.state.fetchStatus} />
         <MovieList
           movies={this.state.movies}
+          savedMovies={this.state.savedMovies}
         />
       </div>
     )
