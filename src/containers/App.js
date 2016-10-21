@@ -53,10 +53,21 @@ class App extends Component {
           searchText={this.state.searchText}
           onUserSubmit={this.handleUserSubmit.bind(this)}
         />
+        You have {this.state.savedMovies.length} movie reminders.<br/>
         <Loading show={this.state.fetchStatus} />
-        <MovieList
-          movies={this.state.movies}
-        />
+        {(() => {
+          if (this.state.movies.length) {
+            return (
+              <div>
+                <h3 key="0"> Search results: </h3>
+                <MovieList
+                  movies={this.state.movies}
+                  savedMovies={this.state.savedMovies}
+                />
+              </div>
+            );
+          }
+        })()}
       </div>
     )
   }
