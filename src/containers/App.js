@@ -3,7 +3,7 @@ import {
   FindMovieForm,
   MovieList,
   Loading
-} from './components/';
+} from '../components/';
 import _ from 'lodash';
 
 class App extends Component {
@@ -45,29 +45,30 @@ class App extends Component {
 
     this.searchMovie(searchText);
   }
+  // <FindMovieForm
+  //   searchText={this.state.searchText}
+  //   onUserSubmit={this.handleUserSubmit.bind(this)}
+  // />
+  // You have {this.state.savedMovies.length} movie reminders.<br/>
+  // <Loading show={this.state.fetchStatus} />
+  // {(() => {
+  //   if (this.state.movies.length) {
+  //     return (
+  //       <div>
+  //         <h3 key="0"> Search results: </h3>
+  //         <MovieList
+  //           movies={this.state.movies}
+  //           savedMovies={this.state.savedMovies}
+  //         />
+  //       </div>
+  //     );
+  //   }
+  // })()}
 
   render() {
     return (
       <div>
-        <FindMovieForm
-          searchText={this.state.searchText}
-          onUserSubmit={this.handleUserSubmit.bind(this)}
-        />
-        You have {this.state.savedMovies.length} movie reminders.<br/>
-        <Loading show={this.state.fetchStatus} />
-        {(() => {
-          if (this.state.movies.length) {
-            return (
-              <div>
-                <h3 key="0"> Search results: </h3>
-                <MovieList
-                  movies={this.state.movies}
-                  savedMovies={this.state.savedMovies}
-                />
-              </div>
-            );
-          }
-        })()}
+        Hello
       </div>
     )
   }
