@@ -23,3 +23,9 @@ export function searchMovies(text) {
     searchTerm: text
   };
 }
+
+export function receiveMovies() {
+  return {
+    type: RECEIVE_MOVIES
+  }
+}
