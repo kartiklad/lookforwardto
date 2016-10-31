@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 
 let styles = {
   row: {
+    cursor: 'pointer',
     borderBottom: '1px solid #000',
     marginTop: 20,
     width: 500,
@@ -31,13 +32,13 @@ let styles = {
 
 const Movie = ({ movie, onClick }) => {
   let poster;
-  if (this.props.movie.Poster && this.props.movie.Poster !== 'N/A') {
+  if (movie.Poster && movie.Poster !== 'N/A') {
     poster = <img
-      style={this.styles.poster}
-      src={this.props.movie.Poster}
+      style={styles.poster}
+      src={movie.Poster}
     />;
   } else {
-    poster = <div style={this.styles.poster}>&nbsp;</div>;
+    poster = <div style={styles.poster}>&nbsp;</div>;
   }
 
   return (
@@ -46,12 +47,11 @@ const Movie = ({ movie, onClick }) => {
       style={styles.row}
     >
       {poster}
-      <div style={this.styles.info}>
-        <span style={this.styles.heading}>Title: </span>{this.props.movie.Title} <br />
-        <span style={this.styles.heading}>Released: </span>{this.props.movie.Released} <br />
-        <span style={this.styles.heading}>Plot: </span>{this.props.movie.Plot}
+      <div style={styles.info}>
+        <span style={styles.heading}>Title: </span>{movie.Title} <br />
+        <span style={styles.heading}>Released: </span>{movie.Released} <br />
+        <span style={styles.heading}>Plot: </span>{movie.Plot}
       </div>
-      <input type="hidden" ref="movie" value={JSON.stringify(this.props.movie)} />
     </li>
   )
 };

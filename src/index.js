@@ -3,20 +3,14 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import movieApp from './reducers';
-// import App from './containers/App';
-import {
-  searchMovies,
-  receiveMovies,
-  remindMovie,
-  forgetMovie
-} from './actions';
+import App from './components/App';
 
 let store = createStore(movieApp);
 
 
-// ReactDOM.render(
-//   <Provider store={store}>
-//     <App />
-//   </Provider>,
-//   document.getElementById('root')
-// );
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
