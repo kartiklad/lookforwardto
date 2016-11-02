@@ -1,6 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { searchMovies, receiveMovies } from '../actions';
+import {
+  searchMovies,
+  receiveMovies,
+  fetchMovies
+} from '../actions';
 
 let SearchMovie = ({ dispatch }) => {
   let input;
@@ -13,7 +17,7 @@ let SearchMovie = ({ dispatch }) => {
           return
         }
         dispatch(searchMovies(input.value))
-        dispatch(receiveMovies())
+        dispatch(fetchMovies(input.value))
         input.value = ''
       }}>
         <input ref={node => {
