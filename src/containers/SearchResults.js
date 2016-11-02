@@ -1,10 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { remindMovie } from '../actions';
-import { MovieList } from '../components/index'
+import { MovieList, Loading } from '../components/index'
 
 const mapStateToProps = (state) => {
   return {
+    isFetching: state.isFetching,
     movies: state.movies
   }
 };
