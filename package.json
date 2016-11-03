@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "webpack-dev-server --progress --colors --host localhost --port 5006"
+    "watch": "./node_modules/.bin/webpack-dev-server --progress --colors --host localhost --port 5006"
   },
   "author": "",
   "license": "ISC",
@@ -32,6 +32,7 @@
     "eslint-plugin-babel": "^3.3.0",
     "eslint-plugin-react": "^6.3.0",
     "json-loader": "^0.5.4",
-    "webpack": "^1.13.2"
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.2"
   }
 }
