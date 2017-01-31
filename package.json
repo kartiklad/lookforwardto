@@ -4,6 +4,7 @@
   "description": "simple react",
   "main": "index.js",
   "scripts": {
+    "dist": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "./node_modules/.bin/webpack-dev-server --progress --colors --host localhost --port 5006"
   },
@@ -27,11 +28,16 @@
   "devDependencies": {
     "babel-eslint": "^6.1.2",
     "babel-preset-stage-2": "^6.18.0",
+    "css-loader": "^0.26.1",
     "eslint": "^3.6.0",
     "eslint-loader": "^1.5.0",
     "eslint-plugin-babel": "^3.3.0",
     "eslint-plugin-react": "^6.3.0",
+    "extract-text-webpack-plugin": "^1.0.1",
     "json-loader": "^0.5.4",
+    "node-sass": "^4.4.0",
+    "sass-loader": "^4.1.1",
+    "style-loader": "^0.13.1",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.2"
   }

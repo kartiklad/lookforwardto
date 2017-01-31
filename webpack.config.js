@@ -1,11 +1,12 @@
 var path = require('path');
 var webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
   output: {
-    path: __dirname,
-    filename: 'bundle.js'
+    path: __dirname + '/dist',
+    filename: '[name].js'
   },
   module: {
     loaders: [
@@ -21,7 +22,15 @@ module.exports = {
         test: /.json?$/,
         loader: 'json-loader',
         exclude: /node_modules/
+      },
+      {
+        test: /.css?$/,
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader'),
+        exclude: /node_modules/
       }
     ]
-  }
+  },
+  plugins: [
+    new ExtractTextPlugin("[name].css")
+  ]
 }

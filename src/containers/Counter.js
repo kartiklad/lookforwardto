@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
+import '../styles/counter.css';
 
 let Counter = ({ movies }) => {
   const count = movies.length;
